@@ -42,8 +42,6 @@ public class UtilityClient {
     public UtilityClient(String requestURL, String charset)
             throws IOException {
         this.charset = charset;
-
-        // creates a unique boundary based on time stamp
         boundary = "===" + System.currentTimeMillis() + "===";
 
         URL url = new URL(requestURL);
@@ -51,7 +49,7 @@ public class UtilityClient {
         httpConn.setConnectTimeout(2000);
         httpConn.setReadTimeout(20000);
         httpConn.setUseCaches(false);
-        httpConn.setDoOutput(true); // indicates POST method
+        httpConn.setDoOutput(true);
         httpConn.setDoInput(true);
         httpConn.setRequestProperty("Content-Type",
                 "multipart/form-data; boundary=" + boundary);
@@ -131,9 +129,7 @@ public class UtilityClient {
         writer.append("--" + boundary + "--").append(LINE_FEED);
         writer.close();
 
-        // checks server's status code first
         int status = httpConn.getResponseCode();
-//        Log.d("MULTIPART_TAG", "" + status);
         if (status == HttpURLConnection.HTTP_OK) {
 
             BufferedInputStream in = new BufferedInputStream(httpConn.getInputStream());

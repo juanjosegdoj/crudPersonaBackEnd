@@ -1,6 +1,7 @@
 package com.tns.maraton.client;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.tns.maraton.exceptions.BusinessException;
 import com.tns.maraton.util.Constants;
 import com.tns.maraton.util.UtilityClient;
 
@@ -18,8 +19,7 @@ public class ClientBase {
             ObjectMapper mapper = new ObjectMapper();
             return mapper.readValue(response, valueType);
         } catch (IOException e) {
-            e.printStackTrace();
-            throw new RuntimeException(Constants.CONECTION_ERROR);
+            throw new BusinessException(Constants.CONECTION_ERROR);
         }
 
     }

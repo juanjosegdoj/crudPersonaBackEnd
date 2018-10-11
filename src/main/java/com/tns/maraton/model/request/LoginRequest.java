@@ -2,7 +2,6 @@ package com.tns.maraton.model.request;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import java.io.File;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class LoginRequest {
@@ -11,11 +10,11 @@ public class LoginRequest {
     private String user;
 
     public byte[] getFile() {
-        return file;
+        return file.clone();
     }
 
     public void setFile(byte[] file) {
-        this.file = file;
+        this.file = file.clone();
     }
 
     public String getUser() {
