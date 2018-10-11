@@ -10,6 +10,7 @@ public final class Constants {
     public static final String COMPARE = "compare-face";
     public static final String CONECTION_ERROR = "Falló la conexión con el servicio";
     public static final String UNDER_CONSTRUCTION = "En conctrucción!!";
+    public static final String FILE_ERROR = "Error en la creación del archivo.";
 
     private Constants(){
         super();

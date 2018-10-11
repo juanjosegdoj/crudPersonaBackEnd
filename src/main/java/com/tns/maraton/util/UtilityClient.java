@@ -1,6 +1,8 @@
 package com.tns.maraton.util;
 
 
+import com.tns.maraton.exceptions.BusinessException;
+
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.File;
@@ -58,7 +60,7 @@ public class UtilityClient {
         try{
             outputStream = httpConn.getOutputStream();
         }catch (IOException e){
-            throw new IOException("" + HttpURLConnection.HTTP_NOT_FOUND);
+            throw new BusinessException("" + HttpURLConnection.HTTP_NOT_FOUND, e);
         }
         writer = new PrintWriter(new OutputStreamWriter(outputStream, charset),
                 true);
@@ -162,8 +164,8 @@ public class UtilityClient {
 
             return result;
         } catch (Exception e) {
-            System.out.println("InputStream --- Error : " + e.toString());
-            return result;
+            throw new BusinessException("InputStream --- Error : " + e.toString(), e);
+
         }
 
     }
