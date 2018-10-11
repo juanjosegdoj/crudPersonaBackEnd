@@ -13,7 +13,7 @@ public class UsersRepositoryTest {
 
     @Autowired
     private UsersRepository repository;
-    
+
     @Test
     public void mustAddUser(){
         repository.save("Julian");
