@@ -11,7 +11,7 @@ public final class FileUtil {
 
     private FileUtil(){super();}
 
-    public static File convert(MultipartFile file) throws IOException {
+    public static File convert(MultipartFile file) {
         try{
             File convFile = new File(file.getOriginalFilename());
             convFile.createNewFile();

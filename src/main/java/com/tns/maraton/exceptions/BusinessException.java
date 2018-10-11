@@ -1,6 +1,5 @@
 package com.tns.maraton.exceptions;
 
-import java.io.IOException;
 
 public class BusinessException extends RuntimeException {
 
