@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Repository
-public class UsersReposittory {
+public class UsersRepository {
 
     private static List<String> buffer = new ArrayList<String>();
 
