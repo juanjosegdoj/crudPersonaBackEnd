@@ -21,7 +21,7 @@ public class ClientBase {
             ObjectMapper mapper = new ObjectMapper();
             return mapper.readValue(response, valueType);
         } catch (IOException e) {
-            throw new BusinessException(Constants.CONECTION_ERROR, e);
+            throw new RuntimeException(e);
         }
 
     }

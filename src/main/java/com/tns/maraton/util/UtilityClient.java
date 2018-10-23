@@ -130,16 +130,14 @@ public class UtilityClient {
         writer.append(LINE_FEED).flush();
         writer.append("--" + boundary + "--").append(LINE_FEED);
         writer.close();
-
         int status = httpConn.getResponseCode();
         if (status == HttpURLConnection.HTTP_OK) {
-
             BufferedInputStream in = new BufferedInputStream(httpConn.getInputStream());
             response = inputStreamToString(in);
-
             httpConn.disconnect();
         } else {
-            throw new IOException("" + status);
+            System.out.println("ERROR: " + status);
+            throw new BusinessException(Constants.getError(status));
         }
 
         return response;
