@@ -2,7 +2,7 @@ package com.tns.maraton.services;
 
 import com.tns.maraton.client.MaratonClient;
 import com.tns.maraton.exceptions.BusinessException;
-import com.tns.maraton.validators.Validate;
+import com.tns.maraton.util.TextUtil;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -27,7 +27,7 @@ public class LoginServiceTest {
     private MaratonClient client;
 
     @Mock
-    private Validate validate;
+    private TextUtil.Validate validate;
 
     @Test(expected = BusinessException.class)
     public void registerMustCallValidator() {

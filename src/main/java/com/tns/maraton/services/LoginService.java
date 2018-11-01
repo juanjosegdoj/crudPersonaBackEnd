@@ -4,7 +4,7 @@ package com.tns.maraton.services;
 import com.tns.maraton.client.MaratonClient;
 import com.tns.maraton.exceptions.BusinessException;
 import com.tns.maraton.model.response.RecognizeResponse;
-import com.tns.maraton.validators.Validate;
+import com.tns.maraton.util.TextUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +17,7 @@ public class LoginService {
     private MaratonClient client;
 
     @Autowired
-    private Validate validate;
+    private TextUtil.Validate validate;
 
 
     public RecognizeResponse compare(File file, String user) {
