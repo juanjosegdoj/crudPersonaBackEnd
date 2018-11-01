@@ -38,7 +38,7 @@ public class LoginServiceTest {
         service.register(file, "Juan");
 
         //Assert
-        verify(validate).isNotNull(file);
+        verify(validate).isNull(file);
     }
 
     @Test
@@ -47,7 +47,7 @@ public class LoginServiceTest {
         File file = new File(getClass().getClassLoader().getResource(FILE_NAME).getFile());
 
         //Act
-        when(validate.isNotNull(file)).thenReturn(true);
+        when(validate.isNull(file)).thenReturn(true);
         service.register(file, "Juan");
 
         //Assert

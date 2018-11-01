@@ -26,7 +26,7 @@ public class LoginService {
     }
 
     public RecognizeResponse register(File file, String user) {
-        if (validate.isNotNull(file)){
+        if (validate.isNull(file)){
             return client.register(file, user);
         }
         throw new BusinessException("Archivo Nulo");

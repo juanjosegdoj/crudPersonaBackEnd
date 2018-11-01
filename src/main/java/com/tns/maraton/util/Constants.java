@@ -19,6 +19,9 @@ public final class Constants {
     private static final Integer CODE_412 = 412;
     private static final Integer CODE_413 = 413;
 
+    public static final String ALFANUMERICO_RE = "^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ_-]+$";
+    public static final String NUMERICO_RE = "^[0-9]+$";
+
     private static Map<Integer, String> errorMap;
 
     private static String _410 = "410: Extensión de imagen no permitida";
