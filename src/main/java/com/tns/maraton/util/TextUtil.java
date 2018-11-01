@@ -7,10 +7,10 @@ import static com.tns.maraton.util.Constants.NUMERICO_RE;
 
 @Service
 public final class TextUtil {
+
     public static String aplicateTrim(String user) {
         return user.trim();
     }
-
 
     public static boolean hasCorrectCharacters(String user) {
         return user.matches(ALFANUMERICO_RE);

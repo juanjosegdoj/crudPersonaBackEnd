@@ -1,13 +1,9 @@
 package com.tns.maraton.util;
 
-import static com.tns.maraton.util.TextUtil.*;
-import static com.tns.maraton.util.ObjectUtil.*;
-
 import org.junit.Test;
 
 import java.io.File;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
@@ -18,11 +14,11 @@ public class ObjectUtilTest {
     @Test
     public void mustValidateFileIsNotNull() {
         //Arrange
-        TextUtil.Validate validate = new TextUtil.Validate();
+        ObjectUtil objectUtil = new ObjectUtil();
         File file = new File(getClass().getClassLoader().getResource(FILE_NAME).getFile());
 
         //Act
-        boolean isNull = validate.isNull(file);
+        boolean isNull = objectUtil.isNull(file);
 
         //Assert
         assertFalse(isNull);
@@ -31,11 +27,11 @@ public class ObjectUtilTest {
     @Test
     public void mustValidateFileIsNull(){
         //Arrange
-        TextUtil.Validate validate = new TextUtil.Validate();
+        ObjectUtil objectUtil = new ObjectUtil();
         File file = null;
 
         //Act
-        boolean isNull = validate.isNull(file);
+        boolean isNull = objectUtil.isNull(file);
 
         //Assert
         assertTrue(isNull);
@@ -44,11 +40,11 @@ public class ObjectUtilTest {
     @Test
     public void mustValidateUserIsNotNull(){
         //Arrange
-        TextUtil.Validate validate = new TextUtil.Validate();
+        ObjectUtil objectUtil = new ObjectUtil();
         String user = "josem";
 
         //Act
-        boolean isNull = validate.isNull(user);
+        boolean isNull = objectUtil.isNull(user);
 
         //Assert
         assertFalse(isNull);
@@ -57,11 +53,11 @@ public class ObjectUtilTest {
     @Test
     public void mustValidateUserIsNull(){
         //Arrange
-        TextUtil.Validate validate = new TextUtil.Validate();
+        ObjectUtil objectUtil = new ObjectUtil();
         String user = null;
 
         //Act
-        boolean isNull = validate.isNull(user);
+        boolean isNull = objectUtil.isNull(user);
 
         //Assert
         assertTrue(isNull);

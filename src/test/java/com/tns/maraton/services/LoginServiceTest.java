@@ -2,7 +2,7 @@ package com.tns.maraton.services;
 
 import com.tns.maraton.client.MaratonClient;
 import com.tns.maraton.exceptions.BusinessException;
-import com.tns.maraton.util.TextUtil;
+import com.tns.maraton.util.ObjectUtil;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -27,7 +27,7 @@ public class LoginServiceTest {
     private MaratonClient client;
 
     @Mock
-    private TextUtil.Validate validate;
+    private ObjectUtil objectUtil;
 
     @Test(expected = BusinessException.class)
     public void registerMustCallValidator() {
@@ -38,7 +38,7 @@ public class LoginServiceTest {
         service.register(file, "Juan");
 
         //Assert
-        verify(validate).isNull(file);
+        verify(objectUtil).isNull(file);
     }
 
     @Test
@@ -47,7 +47,7 @@ public class LoginServiceTest {
         File file = new File(getClass().getClassLoader().getResource(FILE_NAME).getFile());
 
         //Act
-        when(validate.isNull(file)).thenReturn(true);
+        when(objectUtil.isNull(file)).thenReturn(true);
         service.register(file, "Juan");
 
         //Assert

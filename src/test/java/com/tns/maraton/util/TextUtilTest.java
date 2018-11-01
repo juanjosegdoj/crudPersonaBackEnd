@@ -2,19 +2,18 @@ package com.tns.maraton.util;
 
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class TextUtilTest {
 
     @Test
     public void mustValidateUserHasCorrectCharacters(){
         //Arrange
+        TextUtil textUtil = new TextUtil();
         String user = "andersonñ_1234";
 
         //Act
-        boolean hasCorrectCharacters = TextUtil.hasCorrectCharacters(user);
+        boolean hasCorrectCharacters = textUtil.hasCorrectCharacters(user);
 
         //Assert
         assertTrue(hasCorrectCharacters);
@@ -23,6 +22,7 @@ public class TextUtilTest {
     @Test
     public void mustValidateUserHasNotCorrectCharacters(){
         //Arrange
+        TextUtil textUtil = new TextUtil();
         String user = "anderson_1234*";
 
         //Act
@@ -35,6 +35,7 @@ public class TextUtilTest {
     @Test
     public void mustValidateUserHasSpacedCharacters(){
         //Arrange
+        TextUtil textUtil = new TextUtil();
         String user = " anderson1234";
 
         //Act
@@ -47,6 +48,7 @@ public class TextUtilTest {
     @Test
     public void mustTrimSpacesAtTheBeginningAndAtTheEndUser(){
         //Arrange
+        TextUtil textUtil = new TextUtil();
         String user = "   anderson1234   ";
 
         //Act
@@ -59,6 +61,7 @@ public class TextUtilTest {
     @Test
     public void mustValidateUserHasCorrectLength(){
         //Arrange
+        TextUtil textUtil = new TextUtil();
         String user = "anderson1234";
 
         //Act
@@ -71,6 +74,7 @@ public class TextUtilTest {
     @Test
     public void mustValidateUserHasNotLessThanFourCharacters(){
         //Arrange
+        TextUtil textUtil = new TextUtil();
         String user = "an1";
 
         //Act
@@ -83,6 +87,7 @@ public class TextUtilTest {
     @Test
     public void mustValidateUserHasNotMoreThanTwentyCharacters(){
         //Arrange
+        TextUtil textUtil = new TextUtil();
         String user = "anderson1234uco201811";
 
         //Act
@@ -95,6 +100,7 @@ public class TextUtilTest {
     @Test
     public void mustValidateUserDoesNotBeginsWhitNumericCharacters(){
         //Arrange
+        TextUtil textUtil = new TextUtil();
         String user = "9anderson1234";
 
         //Act

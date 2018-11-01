@@ -1,15 +1,19 @@
 package com.tns.maraton.util;
 
 import com.tns.maraton.exceptions.BusinessException;
+import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
+@Service
 public final class FileUtil {
 
-    private FileUtil(){super();}
+    public FileUtil(){
+        super();
+    }
 
     public static File convert(MultipartFile file) {
         try{
@@ -21,6 +25,17 @@ public final class FileUtil {
             return convFile;
         }catch (IOException e){
             throw new BusinessException(Constants.FILE_ERROR, e);
+        }
+    }
+
+    public static boolean validateExtension(File file) {
+        String name = file.getName();
+        int n = name.indexOf(".");
+        String sb = name.substring(n);
+        if (sb.equals(".jpeg") || sb.equals(".jpg") || sb.equals(".png")){
+            return true;
+        }else{
+            return false;
         }
     }
 }
