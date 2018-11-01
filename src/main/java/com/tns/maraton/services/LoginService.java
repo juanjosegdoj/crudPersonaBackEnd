@@ -22,17 +22,25 @@ public class LoginService {
 
 
     public RecognizeResponse compare(File file, String user) {
-
+        asegurarIntegridadUser(user);
         return client.compare(file, user);
     }
 
     public RecognizeResponse register(File file, String user) {
+        asegurarIntegridadUser(user);
         if (objectUtil.isNull(file)){
             return client.register(file, user);
         }
         throw new BusinessException("Archivo Nulo");
-
     }
 
+    private boolean asegurarIntegridadUser(String user){
+        TextUtil.aplicateTrim(user);
+        if (TextUtil.hasCorrectCharacters(user) && TextUtil.userBeginsWhitANumber(user) && TextUtil.userHasCorrectLength(user)){
+            return true;
+        }else{
+            return  false;
+        }
+    }
 
 }

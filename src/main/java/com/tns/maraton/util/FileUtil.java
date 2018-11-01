@@ -29,13 +29,17 @@ public final class FileUtil {
     }
 
     public static boolean validateExtension(File file) {
-        String name = file.getName();
-        int n = name.indexOf(".");
-        String sb = name.substring(n);
-        if (sb.equals(".jpeg") || sb.equals(".jpg") || sb.equals(".png")){
-            return true;
-        }else{
-            return false;
+        boolean retorno = false;
+        try{
+            String name = file.getName();
+            int n = name.indexOf(".");
+            String sb = name.substring(n);
+            if (sb.equals(".jpeg") || sb.equals(".jpg") || sb.equals(".png")){
+                retorno = true;
+            }
+        }catch (Exception e){
+            throw new BusinessException("File Extension Error",e);
         }
+        return retorno;
     }
 }
