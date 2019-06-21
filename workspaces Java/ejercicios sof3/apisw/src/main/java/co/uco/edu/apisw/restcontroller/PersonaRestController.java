@@ -21,6 +21,11 @@ public class PersonaRestController {
     @Autowired
     private PersonaService personaService;
 
+    @GetMapping("/saludar")
+    public String saludar(){
+        return "Hola gordo";
+    }
+
     @GetMapping("/listar")
     public List<Persona> listAll() {
         return personaService.listAll();
